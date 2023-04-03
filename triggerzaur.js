@@ -48,13 +48,16 @@ function seleccionarMascotaEnemigo() {
 
 function ataquePiro(){
     ataqueJugador = 'PIRO🔥'
+    alert(ataqueJugador)
 }
 function ataqueAqua(){
     ataqueJugador = 'AQUA💧'
+    alert(ataqueJugador)
 }
 
 function ataqueTerra(){
     ataqueJugador = 'TERRA🌱'
+    alert(ataqueJugador)
 }
 
 function aleatorio (min, max){
