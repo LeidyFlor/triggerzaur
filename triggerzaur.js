@@ -1,6 +1,15 @@
+let ataqueJugador
+
 function iniciarJuego() {
     let botonMascotaJugador = document.getElementById('boton-mascota')
-botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
+    botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
+
+    let botonPiro = document.getElementById('boton-piro')
+    botonPiro.addEventListener('click', ataquePiro)
+    let botonAqua = document.getElementById('boton-aqua')
+    botonAqua.addEventListener('click', ataqueAqua)
+    let botonTerra = document.getElementById('boton-terra')
+    botonTerra = docuemnt.getElementById('click', ataqueTerra)
 }
 
 function seleccionarMascotaJugador () {
@@ -35,6 +44,17 @@ function seleccionarMascotaEnemigo() {
         spamMacotaEnemigo.innerHTML = 'Ratigueya'
     }
     
+}
+
+function ataquePiro(){
+    ataqueJugador = 'PIRO🔥'
+}
+function ataqueAqua(){
+    ataqueJugador = 'AQUA💧'
+}
+
+function ataqueTerra(){
+    ataqueJugador = 'TERRA🌱'
 }
 
 function aleatorio (min, max){
