@@ -77,10 +77,10 @@ function ataqueAleatorioEnemigo(){
 function crearMensaje(){
     let sectionMensajes = document.getElementById('mensajes')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu triggerzaur atacó con ' + ataqueJugador + ', la mascota enemiga atacó con ' + ataqueEnemigo + ' - PENDIENTE'
+    let anuncioCombate = document.createElement('p')
+    anuncioCombate.innerHTML = 'Tu triggerzaur atacó con ' + ataqueJugador + ', la mascota enemiga atacó con ' + ataqueEnemigo + ' - PENDIENTE'
 
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.appendChild(anuncioCombate)
 }
 
 function aleatorio (min, max){
