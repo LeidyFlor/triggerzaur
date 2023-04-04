@@ -1,4 +1,5 @@
 let ataqueJugador
+let ataqueEnemigo
 
 function iniciarJuego() {
     let botonMascotaJugador = document.getElementById('boton-mascota')
@@ -33,14 +34,14 @@ function seleccionarMascotaJugador () {
 }
 
 function seleccionarMascotaEnemigo() {
-    let ataqueAleatorio = aleatorio(1,3)
+    let mascotaAleatorio = aleatorio(1,3)
     let spamMacotaEnemigo = document.getElementById('mascota-enemigo')
 
-    if (ataqueAleatorio == 1) {
+    if (mascotaAleatorio == 1) {
         spamMacotaEnemigo.innerHTML = 'Hipodoge'
-    }else if (ataqueAleatorio == 2) {
+    }else if (mascotaAleatorio == 2) {
         spamMacotaEnemigo.innerHTML = 'Capipepo'
-    }else if (ataqueAleatorio == 3) {
+    }else if (mascotaAleatorio == 3) {
         spamMacotaEnemigo.innerHTML = 'Ratigueya'
     }
     
@@ -48,15 +49,27 @@ function seleccionarMascotaEnemigo() {
 
 function ataquePiro(){
     ataqueJugador = 'PIRO🔥'
-    alert(ataqueJugador)
+    ataqueAleatorioEnemigo()
 }
 function ataqueAqua(){
     ataqueJugador = 'AQUA💧'
-    alert(ataqueJugador)
+    ataqueAleatorioEnemigo()
 }
 function ataqueTerra(){
     ataqueJugador = 'TERRA🌱'
-    alert(ataqueJugador)
+    ataqueAleatorioEnemigo()
+}
+
+function ataqueAleatorioEnemigo(){
+    ataqueAleatorio = aleatorio(1,3)
+
+    if(ataqueAleatorio ==1 ){
+        ataqueEnemigo = 'PIRO🔥'
+    }else if (ataqueAleatorio ==2 ){
+        ataqueEnemigo = 'AQUA💧'
+    }else {
+        ataqueEnemigo = 'TERRA🌱'
+    }
 }
 
 function aleatorio (min, max){
@@ -65,3 +78,5 @@ function aleatorio (min, max){
 
 
 window.addEventListener('load', iniciarJuego)
+//otra manera de llamar al script después de que se cargue todo el HTML
+//la función iniciarJuego se carga cuando ya todo el contenido está cargado.
