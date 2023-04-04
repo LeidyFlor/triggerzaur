@@ -1,5 +1,7 @@
 let ataqueJugador
 let ataqueEnemigo
+let mascotaJugador
+let mascotaOponente
 
 function iniciarJuego() {
     let botonMascotaJugador = document.getElementById('boton-mascota')
@@ -22,10 +24,13 @@ function seleccionarMascotaJugador () {
 
     if      (inputHipodoge.checked){
         spamMascotaJugador.innerHTML = 'Hipodoge'
+        mascotaJugador = 'Hipodoge'
     } else if (inputCapipepo.checked) {
         spamMascotaJugador.innerHTML = 'Capipepo'
+        mascotaJugador = 'Capipepo'
     } else if (inputRatigueya.checked) {
         spamMascotaJugador.innerHTML = 'Ratigueya'
+        mascotaJugador = 'Ratigueya'
     } else  {
         alert('Selecciona una mascota')
     }
@@ -35,14 +40,17 @@ function seleccionarMascotaJugador () {
 
 function seleccionarMascotaEnemigo() {
     let mascotaAleatorio = aleatorio(1,3)
-    let spamMacotaEnemigo = document.getElementById('mascota-enemigo')
+    mascotaOponente = document.getElementById('mascota-enemigo')
 
     if (mascotaAleatorio == 1) {
-        spamMacotaEnemigo.innerHTML = 'Hipodoge'
+        mascotaOponente.innerHTML = 'Hipodoge'
+        mascotaOponente = 'Hipodoge'
     }else if (mascotaAleatorio == 2) {
-        spamMacotaEnemigo.innerHTML = 'Capipepo'
+        mascotaOponente.innerHTML = 'Capipepo'
+        mascotaOponente = 'Capipepo'
     }else if (mascotaAleatorio == 3) {
-        spamMacotaEnemigo.innerHTML = 'Ratigueya'
+        mascotaOponente.innerHTML = 'Ratigueya'
+        mascotaOponente = 'Ratigueya'
     }
     
 }
@@ -78,7 +86,7 @@ function crearMensaje(){
     let sectionMensajes = document.getElementById('mensajes')
 
     let anuncioCombate = document.createElement('p')
-    anuncioCombate.innerHTML = 'Tu triggerzaur atacó con ' + ataqueJugador + ', la mascota enemiga atacó con ' + ataqueEnemigo + ' - PENDIENTE'
+    anuncioCombate.innerHTML = 'Tu ' + mascotaJugador + ' ataca con elemento ' + ataqueJugador + ', el triggerzaur ' + mascotaOponente +' enemigo ataca con elemento ' + ataqueEnemigo + ' - PENDIENTE'
 
     sectionMensajes.appendChild(anuncioCombate)
 }
