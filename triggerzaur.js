@@ -9,7 +9,7 @@ function iniciarJuego() {
     let botonAqua = document.getElementById('boton-aqua')
     botonAqua.addEventListener('click', ataqueAqua)
     let botonTerra = document.getElementById('boton-terra')
-    botonTerra = docuemnt.getElementById('click', ataqueTerra)
+    botonTerra.addEventListener('click', ataqueTerra)
 }
 
 function seleccionarMascotaJugador () {
@@ -54,7 +54,6 @@ function ataqueAqua(){
     ataqueJugador = 'AQUA💧'
     alert(ataqueJugador)
 }
-
 function ataqueTerra(){
     ataqueJugador = 'TERRA🌱'
     alert(ataqueJugador)
