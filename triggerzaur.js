@@ -2,6 +2,7 @@ let ataqueJugador
 let ataqueEnemigo
 let mascotaJugador
 let mascotaOponente
+let resultadoCombate
 
 function iniciarJuego() {
     let botonMascotaJugador = document.getElementById('boton-mascota')
@@ -84,9 +85,10 @@ function ataqueAleatorioEnemigo(){
 
 function crearMensaje(){
     let sectionMensajes = document.getElementById('mensajes')
+    definirResultadoCombate()
 
     let anuncioCombate = document.createElement('p')
-    anuncioCombate.innerHTML = 'Tu ' + mascotaJugador + ' ataca con elemento ' + ataqueJugador + ', el triggerzaur ' + mascotaOponente +' enemigo ataca con elemento ' + ataqueEnemigo + ' - PENDIENTE'
+    anuncioCombate.innerHTML = 'Tu ' + mascotaJugador + ' ataca con elemento ' + ataqueJugador + ', el triggerzaur ' + mascotaOponente +' enemigo ataca con elemento ' + ataqueEnemigo + resultadoCombate
 
     sectionMensajes.appendChild(anuncioCombate)
 }
@@ -94,7 +96,15 @@ function crearMensaje(){
 function aleatorio (min, max){
     return Math.floor(Math.random()* (max - min + 1) +min)
 }
-
+function definirResultadoCombate(){
+    if (ataqueJugador == ataqueEnemigo){
+        resultadoCombate = '- Empate🥱'
+    }else if (ataqueJugador == 'PIRO🔥' && ataqueEnemigo == 'TERRA🌱' || ataqueJugador == 'AQUA💧' && ataqueEnemigo == 'PIRO🔥' || ataqueJugador == 'TERRA🌱' && ataqueEnemigo == 'AQUA💧') {
+        resultadoCombate = '- Ganaste 🎊🎉'
+    }else {
+        resultadoCombate = '- Perdiste😓'
+    }
+}
 
 window.addEventListener('load', iniciarJuego)
 //otra manera de llamar al script después de que se cargue todo el HTML
