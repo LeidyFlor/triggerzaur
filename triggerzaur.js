@@ -88,7 +88,8 @@ function crearMensaje(){
     definirResultadoCombate()
 
     let anuncioCombate = document.createElement('p')
-    anuncioCombate.innerHTML = 'Tu ' + mascotaJugador + ' ataca con elemento ' + ataqueJugador + ', el triggerzaur ' + mascotaOponente +' enemigo ataca con elemento ' + ataqueEnemigo + resultadoCombate
+    anuncioCombate.innerHTML = 'Tu ' + mascotaJugador + ' ataca con elemento ' + ataqueJugador + 
+    ', el triggerzaur ' + mascotaOponente +' enemigo ataca con elemento ' + ataqueEnemigo + resultadoCombate
 
     sectionMensajes.appendChild(anuncioCombate)
 }
@@ -99,7 +100,9 @@ function aleatorio (min, max){
 function definirResultadoCombate(){
     if (ataqueJugador == ataqueEnemigo){
         resultadoCombate = '- Empate🥱'
-    }else if (ataqueJugador == 'PIRO🔥' && ataqueEnemigo == 'TERRA🌱' || ataqueJugador == 'AQUA💧' && ataqueEnemigo == 'PIRO🔥' || ataqueJugador == 'TERRA🌱' && ataqueEnemigo == 'AQUA💧') {
+    }else if (ataqueJugador == 'PIRO🔥' && ataqueEnemigo == 'TERRA🌱' ||
+        ataqueJugador == 'AQUA💧' && ataqueEnemigo == 'PIRO🔥' ||
+        ataqueJugador == 'TERRA🌱' && ataqueEnemigo == 'AQUA💧') {
         resultadoCombate = '- Ganaste 🎊🎉'
     }else {
         resultadoCombate = '- Perdiste😓'
