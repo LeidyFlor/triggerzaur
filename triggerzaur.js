@@ -2,7 +2,8 @@ let ataqueJugador
 let ataqueEnemigo
 let mascotaJugador
 let mascotaOponente
-let resultadoCombate
+let vidaJugador = 3
+let vidaEnemigo = 3
 
 function iniciarJuego() {
     let botonMascotaJugador = document.getElementById('boton-mascota')
@@ -80,33 +81,54 @@ function ataqueAleatorioEnemigo(){
         ataqueEnemigo = 'TERRA🌱'
     }
 
-    crearMensaje()
+    definirResultadoCombate()
 }
 
-function crearMensaje(){
+function crearMensaje(resultado){
     let sectionMensajes = document.getElementById('mensajes')
-    definirResultadoCombate()
-
+    
     let anuncioCombate = document.createElement('p')
     anuncioCombate.innerHTML = 'Tu ' + mascotaJugador + ' ataca con elemento ' + ataqueJugador + 
-    ', el triggerzaur ' + mascotaOponente +' enemigo ataca con elemento ' + ataqueEnemigo + resultadoCombate
+    ', el triggerzaur ' + mascotaOponente +' enemigo ataca con elemento ' + ataqueEnemigo + resultado
 
     sectionMensajes.appendChild(anuncioCombate)
+    
 }
 
 function aleatorio (min, max){
     return Math.floor(Math.random()* (max - min + 1) +min)
 }
 function definirResultadoCombate(){
+    let spamVidaJugador = document.getElementById("vida-jugador")
+    let spamVidaEnemigo = document.getElementById("vida-enemigo")
+    
     if (ataqueJugador == ataqueEnemigo){
-        resultadoCombate = '- Empate🥱'
+        crearMensaje ('- Empate🥱')
+     
     }else if (ataqueJugador == 'PIRO🔥' && ataqueEnemigo == 'TERRA🌱' ||
         ataqueJugador == 'AQUA💧' && ataqueEnemigo == 'PIRO🔥' ||
         ataqueJugador == 'TERRA🌱' && ataqueEnemigo == 'AQUA💧') {
-        resultadoCombate = '- Ganaste 🎊🎉'
+        crearMensaje ('- Ganaste 🎊🎉')
+        vidaEnemigo--
+        spamVidaEnemigo.innerHTML = vidaEnemigo
+       
     }else {
-        resultadoCombate = '- Perdiste😓'
+        crearMensaje ('- Perdiste😓')
+       vidaJugador--
+       spamVidaJugador.innerHTML = vidaJugador
     }
+    revisarVidas()
+}
+function revisarVidas(){
+    let finCombate = document.getElementById('fin')
+    let anuncioFin =document.createElement('p')
+    if (vidaJugador == 0){
+        anuncioFin.innerHTML = '¡Ohh no! Tu triggerzaur se ha debilitado 😢, pero no te preocupes da click en Reiniciar y comenzemos de nuevo 😁'
+        finCombate.appendChild(anuncioFin)
+    }else if (vidaEnemigo == 0){
+        anuncioFin.innerHTML = '¡Felicidades! El triggerzaur enemigo se ha debilitado , si quieres volver a jugar da click en Reiniciar y comenzemos de nuevo 😁'
+        finCombate.appendChild(anuncioFin)
+}
 }
 
 window.addEventListener('load', iniciarJuego)
