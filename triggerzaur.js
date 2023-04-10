@@ -15,6 +15,9 @@ function iniciarJuego() {
     botonAqua.addEventListener('click', ataqueAqua)
     let botonTerra = document.getElementById('boton-terra')
     botonTerra.addEventListener('click', ataqueTerra)
+
+    let botonReiniciar = document.getElementById('boton-reiniciar')
+    botonReiniciar.addEventListener ('click', reiniciarJuego)
 }
 
 function seleccionarMascotaJugador () {
@@ -119,16 +122,32 @@ function definirResultadoCombate(){
     }
     revisarVidas()
 }
-function revisarVidas(){
+function crearMensajeFinal(resultadoFinal){
     let finCombate = document.getElementById('fin')
     let anuncioFin =document.createElement('p')
+
+    anuncioFin.innerHTML = resultadoFinal
+
+    finCombate.appendChild(anuncioFin)
+
+    let botonPiro = document.getElementById('boton-piro')
+    botonPiro.disabled = true
+    let botonAqua = document.getElementById('boton-aqua')
+    botonAqua.disabled = true
+    let botonTerra = document.getElementById('boton-terra')
+    botonTerra.disabled = true
+}
+function revisarVidas(){
+   
     if (vidaJugador == 0){
-        anuncioFin.innerHTML = '¡Ohh no! Tu triggerzaur se ha debilitado 😢, pero no te preocupes da click en Reiniciar y comenzemos de nuevo 😁'
+        crearMensajeFinal('¡Ohh no! Tu triggerzaur se ha debilitado 😢, pero no te preocupes da click en Reiniciar y comenzemos de nuevo 😁')
         finCombate.appendChild(anuncioFin)
     }else if (vidaEnemigo == 0){
-        anuncioFin.innerHTML = '¡Felicidades! El triggerzaur enemigo se ha debilitado , si quieres volver a jugar da click en Reiniciar y comenzemos de nuevo 😁'
-        finCombate.appendChild(anuncioFin)
+        crearMensajeFinal('¡Felicidades! El triggerzaur enemigo se ha debilitado , si quieres volver a jugar da click en Reiniciar y comenzemos de nuevo 😁')
+    }
 }
+function reiniciarJuego() {
+    location.reload()
 }
 
 window.addEventListener('load', iniciarJuego)
