@@ -6,6 +6,13 @@ let vidaJugador = 3
 let vidaEnemigo = 3
 
 function iniciarJuego() {
+    let sectionSeleccionarAtaque = document.getElementById('Elegir-ataque')
+    sectionSeleccionarAtaque.style.display = 'none'
+
+    let sectionReiniciar = document.getElementById('Reiniciar')
+    sectionReiniciar.style.display = 'none'
+
+
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador)
 
@@ -21,6 +28,11 @@ function iniciarJuego() {
 }
 
 function seleccionarMascotaJugador () {
+    let sectionSeleccionarAtaque = document.getElementById('Elegir-ataque')
+    sectionSeleccionarAtaque.style.display = 'block'
+    let sectionSeleccionarMascotas = document.getElementById('Elegir-triggerzaur')
+    sectionSeleccionarMascotas.style.display = 'none'
+
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
     let inputRatigueya = document.getElementById('ratigueya')
@@ -136,6 +148,9 @@ function crearMensajeFinal(resultadoFinal){
     botonAqua.disabled = true
     let botonTerra = document.getElementById('boton-terra')
     botonTerra.disabled = true
+
+    let sectionReiniciar = document.getElementById('Reiniciar')
+    sectionReiniciar.style.display = 'block'
 }
 function revisarVidas(){
    
