@@ -50,6 +50,7 @@ function seleccionarMascotaJugador () {
         mascotaJugador = 'Ratigueya'
     } else  {
         alert('Selecciona una mascota')
+        reiniciarJuego()
     }
     seleccionarMascotaEnemigo ()
 
