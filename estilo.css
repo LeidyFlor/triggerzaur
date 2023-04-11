@@ -1,0 +1,21 @@
+.titulo{
+    color:seagreen;
+    width: 294px;
+    height: 55px;
+    background-color:lemonchiffon;
+}
+input {
+    width: 15px;
+    height: 15px;
+    background-color: aquamarine;
+}
+label{
+    color:darkred;
+    background-color: blanchedalmond;
+}
+button{
+    color:azure;
+    width: 84px;
+    height: 23px;
+    background-color: rgb(9, 151, 16);   
+}
